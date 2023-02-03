@@ -1,10 +1,14 @@
 package com.example.demo.uce.modelo;
 
+import java.util.List;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
@@ -29,6 +33,9 @@ public class Cliente {
 	
 	@Column(name="clie_edad")
 	private String edad;
+	
+	@OneToMany(mappedBy = "cliente")
+	private List<Renta> rentas;
 
 	public Integer getId() {
 		return id;
@@ -69,8 +76,16 @@ public class Cliente {
 	public void setEdad(String edad) {
 		this.edad = edad;
 	}
-	
 
+	public List<Renta> getRentas() {
+		return rentas;
+	}
+
+	public void setRentas(List<Renta> rentas) {
+		this.rentas = rentas;
+	}
+	
+	
 	
 	
 }

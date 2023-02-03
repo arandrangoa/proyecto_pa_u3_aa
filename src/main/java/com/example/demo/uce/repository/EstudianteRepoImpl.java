@@ -65,7 +65,7 @@ public class EstudianteRepoImpl implements IEstudianteRepo{
 		// TODO Auto-generated method stub
 		this.entityManager.persist(estudiante);
 	}
-
+   
 	
 
 

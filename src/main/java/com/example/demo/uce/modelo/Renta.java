@@ -7,6 +7,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
@@ -22,6 +24,19 @@ public class Renta {
 	
 	@Column(name="rent_fecha")
 	private LocalDateTime fecha;
+	
+	@Column(name="rent_numDiaz")
+	private Integer numDias;
+	
+	@ManyToOne
+	@JoinColumn(name="rent_id_vehiculo")
+	private Vehiculo vehiculo;
+	
+	@ManyToOne
+	@JoinColumn(name="rent_id_cliente")
+	private Cliente cliente;
+	
+	
 
 	public Integer getId() {
 		return id;
@@ -38,6 +53,31 @@ public class Renta {
 	public void setFecha(LocalDateTime fecha) {
 		this.fecha = fecha;
 	}
+
+	public Integer getNumDias() {
+		return numDias;
+	}
+
+	public void setNumDias(Integer numDias) {
+		this.numDias = numDias;
+	}
+
+	public Vehiculo getVehiculo() {
+		return vehiculo;
+	}
+
+	public void setVehiculo(Vehiculo vehiculo) {
+		this.vehiculo = vehiculo;
+	}
+
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+	
 	
 	
 
