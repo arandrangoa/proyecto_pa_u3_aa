@@ -4,7 +4,12 @@ import com.example.demo.uce.modelo.Estudiante;
 
 public interface IEstudianteService {
 	
-	public Estudiante buscarNombre(String nombre);
-	public Estudiante buscarApellido(String apellido);
+	public void insertar(Estudiante estudiante);
+	
+	public Estudiante buscarPorNombre(String nombre);
+	public Estudiante buscarPorApellido(String apellido);
+	public Estudiante buscarPorGenero(String genero);
+	public Estudiante buscarPorCedula(String cedula);
+	public Estudiante buscarPorCiudad(String ciudad);
 
 }
