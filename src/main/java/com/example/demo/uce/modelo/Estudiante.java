@@ -9,11 +9,17 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.NamedNativeQueries;
+import jakarta.persistence.NamedNativeQuery;
+import jakarta.persistence.NamedQuery;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
 @Entity //Anotacion para mapear
 @Table(name="estudiante") //nombre de la tabla en la base de datos
+@NamedQuery(name="Estudiante.buscarPorNom",query = "select e from Estudiante e where estu_nombre= :datoNombre")
+
+@NamedNativeQuery(name="Estudiante.buscarPorNombreNative",query = "select * from estudiante where estu_nombre= :datoNombre")
 public class Estudiante {
 	
 	@Id //Metadata para indicar que es la clave primary

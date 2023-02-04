@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,28 +8,14 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.example.demo.uce.modelo.Cliente;
-import com.example.demo.uce.modelo.Renta;
-import com.example.demo.uce.modelo.Vehiculo;
-import com.example.demo.uce.service.IClienteService;
+import com.example.demo.uce.modelo.Estudiante;
 import com.example.demo.uce.service.IEstudianteService;
-import com.example.demo.uce.service.IRentaService;
-import com.example.demo.uce.service.IVehiculoService;
 
 @SpringBootApplication
 public class ProyectoPaU3AaApplication implements CommandLineRunner{
 	
 	@Autowired
 	private IEstudianteService estudianteService;
-	
-	@Autowired
-	private IVehiculoService iVehiculoService;
-	
-	@Autowired
-	private IClienteService clienteService;
-	
-	@Autowired
-	private IRentaService iRentaService;
 
 	public static void main(String[] args) {
 		SpringApplication.run(ProyectoPaU3AaApplication.class, args);
@@ -38,26 +25,34 @@ public class ProyectoPaU3AaApplication implements CommandLineRunner{
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
 		
-		Vehiculo vehiculo=new Vehiculo();
-		vehiculo.setFabricante("Chevrolet");
-		vehiculo.setModelo("Camaro");
-		vehiculo.setPlaca("TCX900");
-		this.iVehiculoService.agregar(vehiculo);
+		System.out.println("Busqueda por QueryTyped");
+		Estudiante buscarEstudianteNombre=this.estudianteService.buscarPorNOmbreQueryTyped("Romeo");
+		System.out.println(buscarEstudianteNombre);
 		
-		Cliente cliente=new Cliente();
-		cliente.setApellido("Andrango");
-		cliente.setEdad("24");
-		cliente.setNombre("Alex");
-		cliente.setNumCedula("1727193847");
-		this.clienteService.insertar(cliente);
+		System.out.println("Busqueda por NamedQuery");
+		Estudiante buscarEstudianteNombre2=this.estudianteService.buscarPorNombreNamedQuery("Romeo");
+		System.out.println(buscarEstudianteNombre2);
 		
-		Renta renta=new Renta();
-		renta.setCliente(cliente);
-		renta.setVehiculo(vehiculo);
-		renta.setNumDias(5);
-		renta.setFecha(LocalDateTime.now());
+		System.out.println("Busqueda por NamedQuery");
+		Estudiante buscarEstudianteNombre3=this.estudianteService.buscarPorNombreNamedQueryTyped("Romeo");
+		System.out.println(buscarEstudianteNombre3);
 		
-		this.iRentaService.insertar(renta, vehiculo.getPlaca(), cliente.getNumCedula());
+		/*System.out.println("Busqueda por nombre");
+		Estudiante buscarEstudianteNombre4=this.estudianteService.buscarPorNombreNativeQuery("Romeo");
+		System.out.println(buscarEstudianteNombre);*/
+		
+		/*System.out.println("Busqueda por genero");
+		Estudiante buscarEstudianteGenero=this.estudianteService.buscarPorGeneroQuery("Masculino");
+		System.out.println(buscarEstudianteGenero);
+		
+		System.out.println("Busqueda por cedula");
+		Estudiante buscarEstudianteCedula=this.estudianteService.buscarPorCedulaQuery("1756285381");
+		System.out.println(buscarEstudianteCedula);
+		
+		System.out.println("Busqueda por ciudad");
+		Estudiante buscarEstudianteCiudad=this.estudianteService.buscarPorCiudadQuery("Guayaquil");
+		System.out.println(buscarEstudianteCiudad);*/
+		
 		
 		
 		
