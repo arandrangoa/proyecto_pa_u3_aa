@@ -11,51 +11,62 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.NamedNativeQueries;
 import jakarta.persistence.NamedNativeQuery;
+import jakarta.persistence.NamedQueries;
 import jakarta.persistence.NamedQuery;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
-@Entity //Anotacion para mapear
-@Table(name="estudiante") //nombre de la tabla en la base de datos
-@NamedQuery(name="Estudiante.buscarPorNom",query = "select e from Estudiante e where estu_nombre= :datoNombre")
+@Entity
+@Table(name = "estudiante")
 
-@NamedNativeQuery(name="Estudiante.buscarPorNombreNative",query = "select * from estudiante where estu_nombre= :datoNombre")
+@NamedQueries({
+	@NamedQuery(name = "Estudiante.buscarPorNom", query = "select e from Estudiante e where e.nombre = :datoNombre"),
+	@NamedQuery(name = "Estudiante.buscarPorNom1", query = "select e from Estudiante e where e.nombre = :datoNombre"),
+	@NamedQuery(name = "Estudiante.buscarPorNom2", query = "select e from Estudiante e where e.nombre = :datoNombre") })
+
+@NamedNativeQueries({
+	@NamedNativeQuery(name = "Estudiante.buscarPorNombreNative", query = "select *from estudiante where estu_nombre = :datoNombre", resultClass = Estudiante.class),
+	@NamedNativeQuery(name = "Estudiante.buscarPorNombreNative1", query = "select *from estudiante where estu_nombre = :datoNombre", resultClass = Estudiante.class),
+	@NamedNativeQuery(name = "Estudiante.buscarPorNombreNative2", query = "select *from estudiante where estu_nombre = :datoNombre", resultClass = Estudiante.class) })
+
 public class Estudiante {
-	
-	@Id //Metadata para indicar que es la clave primary
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "estu_seq")  //Genera una secuencia y se debe poner asi y el nombre qdel que pusimos abajo
-	@SequenceGenerator(name="estu_seq", sequenceName = "estu_seq", allocationSize = 1) //en el name es una buena practica poner el nombre de la secuencia
-	@Column(name="estu_id") //Anotacion para indicar a que columna mapea
-	private Integer id;  //Mapear con la clase que repsesentan
-	
-	@Column(name="estu_nombre")
+
+	@Id // Metadata para indicar que es la clave primary
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "estu_seq") // Genera una secuencia y se debe poner
+																				// asi y el nombre qdel que pusimos
+																				// abajo
+	@SequenceGenerator(name = "estu_seq", sequenceName = "estu_seq", allocationSize = 1) // en el name es una buena
+																							// practica poner el nombre
+																							// de la secuencia
+	@Column(name = "estu_id") // Anotacion para indicar a que columna mapea
+	private Integer id; // Mapear con la clase que repsesentan
+
+	@Column(name = "estu_nombre")
 	private String nombre;
-	
-	@Column(name="estu_apellido")
+
+	@Column(name = "estu_apellido")
 	private String apellido;
-	
-	@Column(name="estu_genero")
+
+	@Column(name = "estu_genero")
 	private String genero;
-	
-	@Column(name="estu_ciudad")
+
+	@Column(name = "estu_ciudad")
 	private String ciudad;
-	
-	@Column(name="estu_cedula")
+
+	@Column(name = "estu_cedula")
 	private String cedula;
-	
-	@Column(name="estu_pais")
+
+	@Column(name = "estu_pais")
 	private String pais;
-	
-	@Column(name="estu_hobby")
+
+	@Column(name = "estu_hobby")
 	private String hobby;
-	
-	@Column(name="estu_salario")
+
+	@Column(name = "estu_salario")
 	private BigDecimal salario;
-	
-	@Column(name="estu_fecha_nacimiento")
+
+	@Column(name = "estu_fecha_nacimiento")
 	private LocalDateTime fecha_nacimineto;
-	
-	
 
 	public String getHobby() {
 		return hobby;
@@ -81,7 +92,7 @@ public class Estudiante {
 		this.fecha_nacimineto = fecha_nacimineto;
 	}
 
-	//GET Y SET
+	// GET Y SET
 	public Integer getId() {
 		return id;
 	}
@@ -129,7 +140,7 @@ public class Estudiante {
 	public void setCedula(String cedula) {
 		this.cedula = cedula;
 	}
-	
+
 	public String getPais() {
 		return pais;
 	}
@@ -143,8 +154,5 @@ public class Estudiante {
 		return "Estudiante [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", genero=" + genero
 				+ ", ciudad=" + ciudad + ", cedula=" + cedula + "]";
 	}
-	
-	
-	
 
 }

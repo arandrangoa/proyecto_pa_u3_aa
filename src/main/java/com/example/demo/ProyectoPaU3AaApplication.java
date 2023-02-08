@@ -2,6 +2,8 @@ package com.example.demo;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -25,35 +27,45 @@ public class ProyectoPaU3AaApplication implements CommandLineRunner{
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
 		
-		System.out.println("Busqueda por QueryTyped");
-		Estudiante buscarEstudianteNombre=this.estudianteService.buscarPorNOmbreQueryTyped("Romeo");
+		/*System.out.println("Busqueda por QueryTyped");
+		Estudiante buscarEstudianteNombre=this.estudianteService.buscarPorNombreNamedQuery("Romeo");
 		System.out.println(buscarEstudianteNombre);
 		
 		System.out.println("Busqueda por NamedQuery");
 		Estudiante buscarEstudianteNombre2=this.estudianteService.buscarPorNombreNamedQuery("Romeo");
 		System.out.println(buscarEstudianteNombre2);
 		
-		System.out.println("Busqueda por NamedQuery");
+		System.out.println("Busqueda por NamedQueryTyped");
 		Estudiante buscarEstudianteNombre3=this.estudianteService.buscarPorNombreNamedQueryTyped("Romeo");
 		System.out.println(buscarEstudianteNombre3);
 		
-		/*System.out.println("Busqueda por nombre");
+		System.out.println("Busqueda por NativeQuery");
 		Estudiante buscarEstudianteNombre4=this.estudianteService.buscarPorNombreNativeQuery("Romeo");
+		System.out.println(buscarEstudianteNombre4);*/
+		
+		
+		/*System.out.println("Busqueda por TYPED Y NATIVE");
+		Estudiante buscarEstudianteNombre5 = this.estudianteService.buscarPorNombreNativeQueryTypedNamed("Romeo");
+		System.out.println(buscarEstudianteNombre5);*/
+		
+		/*System.out.println("Busqueda por QueryTyped");
+		Estudiante buscarEstudianteNombre=this.estudianteService.buscarPorNombreNamedQuery("Romeo");
 		System.out.println(buscarEstudianteNombre);*/
 		
-		/*System.out.println("Busqueda por genero");
-		Estudiante buscarEstudianteGenero=this.estudianteService.buscarPorGeneroQuery("Masculino");
-		System.out.println(buscarEstudianteGenero);
-		
-		System.out.println("Busqueda por cedula");
-		Estudiante buscarEstudianteCedula=this.estudianteService.buscarPorCedulaQuery("1756285381");
-		System.out.println(buscarEstudianteCedula);
-		
-		System.out.println("Busqueda por ciudad");
-		Estudiante buscarEstudianteCiudad=this.estudianteService.buscarPorCiudadQuery("Guayaquil");
-		System.out.println(buscarEstudianteCiudad);*/
 		
 		
+		/*List <Estudiante> estudiantes= this.estudianteService.buscarPorNombreQueryList("Romeo");
+		for(Estudiante e: estudiantes) {
+			System.out.println(e);
+		}*/
+		
+		/*Estudiante buscar1=this.estudianteService.buscarPorNombreQueryList0("Romeo");
+		System.out.println(buscar1);*/
+		
+		System.out.println("NAMED QUERY TYPED");
+		Estudiante buscar1 = this.estudianteService.buscarPorNombreNamedQueryTyped("Bryan");
+		System.out.println(buscar1);
+
 		
 		
 	}

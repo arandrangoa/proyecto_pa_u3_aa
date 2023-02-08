@@ -1,10 +1,10 @@
 package com.example.demo.uce.service;
 
+import java.util.List;
+
 import com.example.demo.uce.modelo.Estudiante;
 
 public interface IEstudianteService {
-	
-	public void insertar(Estudiante estudiante);
 	
 	public Estudiante buscarPorNombreQuery(String nombre);
 	public Estudiante buscarPorApellidoQuery(String apellido);
@@ -12,13 +12,19 @@ public interface IEstudianteService {
 	public Estudiante buscarPorCedulaQuery(String cedula);
 	public Estudiante buscarPorCiudadQuery(String ciudad);
 	
-	public Estudiante buscarPorNOmbreQueryTyped(String nombre);
-
+	public Estudiante buscarPorNombreQueryTyped(String nombre);
 	public Estudiante buscarPorNombreNamedQuery(String nombre);
 	
 	public Estudiante buscarPorNombreNamedQueryTyped(String nombre);
-
-	public Estudiante buscarPorNombreNativeQuery(String nombre);
 	
-	public Estudiante buscarPorNombreNativeTypedNamed(String nombre);
+	
+	//NATIVE QUERY
+	public Estudiante buscarPorNombreNativeQuery(String nombre);
+		//MEZCLA CON TYPED Y NATIVE
+	public Estudiante buscarPorNombreNativeQueryTypedNamed(String nombre);
+		
+	public List <Estudiante> buscarPorNombreQueryList(String nombre);
+	
+	
+	public Estudiante buscarPorNombreQueryList0(String nombre);
 }

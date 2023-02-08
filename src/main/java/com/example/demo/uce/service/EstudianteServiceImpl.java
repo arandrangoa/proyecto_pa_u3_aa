@@ -1,5 +1,7 @@
 package com.example.demo.uce.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +13,8 @@ public class EstudianteServiceImpl implements IEstudianteService{
 	
 	@Autowired
 	private IEstudianteRepo estudianteRepo;
-
+	
+	
 	@Override
 	public Estudiante buscarPorNombreQuery(String nombre) {
 		// TODO Auto-generated method stub
@@ -43,13 +46,7 @@ public class EstudianteServiceImpl implements IEstudianteService{
 	}
 
 	@Override
-	public void insertar(Estudiante estudiante) {
-		// TODO Auto-generated method stub
-		this.estudianteRepo.insertar(estudiante);
-	}
-
-	@Override
-	public Estudiante buscarPorNOmbreQueryTyped(String nombre) {
+	public Estudiante buscarPorNombreQueryTyped(String nombre) {
 		// TODO Auto-generated method stub
 		return this.estudianteRepo.buscarPorNombreQueryTyped(nombre);
 	}
@@ -73,9 +70,21 @@ public class EstudianteServiceImpl implements IEstudianteService{
 	}
 
 	@Override
-	public Estudiante buscarPorNombreNativeTypedNamed(String nombre) {
+	public Estudiante buscarPorNombreNativeQueryTypedNamed(String nombre) {
 		// TODO Auto-generated method stub
-		return this.estudianteRepo.buscarPorNombreNativeTypedNamed(nombre);
+		return this.estudianteRepo.buscarPorNombreNativeQueryTypedNamed(nombre);
 	}
 
+	@Override
+	public List<Estudiante> buscarPorNombreQueryList(String nombre) {
+		// TODO Auto-generated method stub
+		return this.estudianteRepo.buscarPorNombreQueryList(nombre);
+	}
+
+	@Override
+	public Estudiante buscarPorNombreQueryList0(String nombre) {
+		// TODO Auto-generated method stub
+		return this.estudianteRepo.buscarPorNombreQueryList0(nombre);
+	}
 }
+	
