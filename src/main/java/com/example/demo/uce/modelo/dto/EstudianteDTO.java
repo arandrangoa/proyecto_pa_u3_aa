@@ -6,17 +6,19 @@ public class EstudianteDTO {
 	private String nombre;
 	private String apellido;
 	private String cedula;
+	private String genero;
 	
 	public EstudianteDTO(){
 		
 	}
 		
 	
-	public EstudianteDTO(String nombre, String apellido, String cedula) {
+	public EstudianteDTO(String nombre, String apellido, String cedula, String genero) {
 		super();
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.cedula = cedula;
+		this.genero= genero;
 	}
 	
 	//GET Y SET
@@ -39,12 +41,23 @@ public class EstudianteDTO {
 		this.cedula = cedula;
 	}
 
+	public String getGenero() {
+		return genero;
+	}
+
+
+	public void setGenero(String genero) {
+		this.genero = genero;
+	}
+
 
 	@Override
 	public String toString() {
-		return "EstudianteDTO [nombre=" + nombre + ", apellido=" + apellido + ", cedula=" + cedula + "]";
+		return "EstudianteDTO [nombre=" + nombre + ", apellido=" + apellido + ", cedula=" + cedula + ", genero="
+				+ genero + "]";
 	}
-	
+
+
 	
 	
 

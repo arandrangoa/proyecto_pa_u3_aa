@@ -33,4 +33,12 @@ public interface IEstudianteRepo {
 	public Estudiante buscarPorNombreQueryList0(String nombre);
 	
 	public EstudianteDTO buscarPorNombreQueryTypedDTO(String nombre);
+	
+	
+	public Estudiante buscarPorNombreQueryCriteria(String nombre);
+	
+	
+	
+	public List<Estudiante> buscarPorNombreQueryCriteriaAndOr(String nombre, String apellido, String bandera);
+	
 }

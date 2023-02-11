@@ -11,6 +11,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.example.demo.uce.modelo.Estudiante;
+import com.example.demo.uce.modelo.dto.EstudianteDTO;
 import com.example.demo.uce.service.IEstudianteService;
 
 @SpringBootApplication
@@ -62,10 +63,22 @@ public class ProyectoPaU3AaApplication implements CommandLineRunner{
 		/*Estudiante buscar1=this.estudianteService.buscarPorNombreQueryList0("Romeo");
 		System.out.println(buscar1);*/
 		
-		System.out.println("NAMED QUERY TYPED");
-		Estudiante buscar1 = this.estudianteService.buscarPorNombreNamedQueryTyped("Bryan");
-		System.out.println(buscar1);
-
+		
+		
+		/*System.out.println("NAMED QUERY TYPED");
+		Estudiante buscar1 = this.estudianteService.buscarPorNombreNamedQueryTyped("Alejandra");
+		System.out.println(buscar1);*/
+		
+		System.out.println("Busqueda con Criteria API Query And");
+		List<Estudiante> buscar3=this.estudianteService.buscarPorNombreQueryCriteriaAndOr("Alejandra", "Mendoza", "M");
+		System.out.println(buscar3);
+		
+		System.out.println("******************************************");
+		
+		System.out.println("Busqueda con Criteria API Query Or");
+		List<Estudiante> buscar4=this.estudianteService.buscarPorNombreQueryCriteriaAndOr("Alejandra", "Mendoza", "F");
+		System.out.println(buscar4);
+		
 		
 		
 	}

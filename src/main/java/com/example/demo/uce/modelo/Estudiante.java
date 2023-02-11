@@ -29,6 +29,7 @@ import jakarta.persistence.Table;
 	@NamedNativeQuery(name = "Estudiante.buscarPorNombreNative1", query = "select *from estudiante where estu_nombre = :datoNombre", resultClass = Estudiante.class),
 	@NamedNativeQuery(name = "Estudiante.buscarPorNombreNative2", query = "select *from estudiante where estu_nombre = :datoNombre", resultClass = Estudiante.class) })
 
+
 public class Estudiante {
 
 	@Id // Metadata para indicar que es la clave primary
