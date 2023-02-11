@@ -69,7 +69,7 @@ public class ProyectoPaU3AaApplication implements CommandLineRunner{
 		Estudiante buscar1 = this.estudianteService.buscarPorNombreNamedQueryTyped("Alejandra");
 		System.out.println(buscar1);*/
 		
-		System.out.println("Busqueda con Criteria API Query And");
+		/*System.out.println("Busqueda con Criteria API Query And");
 		List<Estudiante> buscar3=this.estudianteService.buscarPorNombreQueryCriteriaAndOr("Alejandra", "Mendoza", "M");
 		System.out.println(buscar3);
 		
@@ -77,9 +77,16 @@ public class ProyectoPaU3AaApplication implements CommandLineRunner{
 		
 		System.out.println("Busqueda con Criteria API Query Or");
 		List<Estudiante> buscar4=this.estudianteService.buscarPorNombreQueryCriteriaAndOr("Alejandra", "Mendoza", "F");
-		System.out.println(buscar4);
+		System.out.println(buscar4);*/
 		
+		/*System.out.println("Elminar por apellido");
+		int e1 = this.estudianteService.eliminarPorApellido("Lucano");
+		System.out.println(e1);
+		System.out.println("***********************************");
 		
+		System.out.println("Actualizar por apellido");
+		int e2= this.estudianteService.actualizarPorApellido("Mendoza", "Darleen");
+		System.out.println(e2);*/
 		
 	}
 
