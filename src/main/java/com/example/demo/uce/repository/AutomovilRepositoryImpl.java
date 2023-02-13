@@ -122,4 +122,21 @@ public class AutomovilRepositoryImpl implements IAutomovilRepository{
 		this.entityManager.persist(automovil);
 	}
 
+	@Override
+	public int eliminarPorPlaca(String placa) {
+		// TODO Auto-generated method stub
+		Query query=this.entityManager.createQuery("DELETE FROM Automovil e WHERE e.placa= :placa");
+		query.setParameter("placa", placa);
+		return query.executeUpdate(); //Metodo
+	}
+
+	@Override
+	public int actualizarPorPlaca(String placa, String color) {
+		// TODO Auto-generated method stub
+		Query query=this.entityManager.createQuery("UPDATE Automovil e SET e.color= :datoColor WHERE e.placa= :datoPlaca");
+		query.setParameter("datoColor", color);
+		query.setParameter("datoPlaca", placa);
+		return query.executeUpdate();
+	}
+
 }

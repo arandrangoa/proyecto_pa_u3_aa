@@ -24,50 +24,28 @@ public class DeberPaU3Aa1Application implements CommandLineRunner{
 		
 		Automovil auto1=new Automovil();
 		auto1.setAnio("2020");
-		auto1.setColor("Negro");
-		auto1.setMarca("Chevrolet");
-		auto1.setModelo("Camaro");
-		auto1.setPlaca("TCX900");
+		auto1.setColor("Vino");
+		auto1.setMarca("Toyota");
+		auto1.setModelo("Yaris");
+		auto1.setPlaca("TPA1530");
 		auto1.setTransmicion("Manual");
 		//this.automovilService.agregar(auto1);
 		
-		System.out.println("Busquedas por TypedQuery");
-		Automovil e1 = this.automovilService.buscaPorMarcaQueryTyped("Chevrolet");
-		System.out.println(e1);
-		Automovil e2 = this.automovilService.buscarPorModeloQueryTyped("Camaro");
-		System.out.println(e1);
-		Automovil e3 = this.automovilService.buscarPorColorQueryTyped("Negro");
-		System.out.println(e1);
-		System.out.println("******************************************************");
+		System.out.println("Eliminacion");
+		int a1=this.automovilService.eliminarPorPlaca("TCX900");
+		System.out.println(a1);
 		
-		System.out.println("Busquedas por NamedQuery");
-		Automovil e4 = this.automovilService.buscarPorPlacaNamedQuery("TCX900");
-		System.out.println(e4);
-		Automovil e5 = this.automovilService.buscarPorAnioNamedQuery("2020");
-		System.out.println(e5);
-		Automovil e6 = this.automovilService.buscarPorTransmicionNamedQuery("Manual");
-		System.out.println(e6);
-		System.out.println("******************************************************");
+		int a2=this.automovilService.eliminarPorPlaca("TPA1530");
+		System.out.println(a2);
 		
-		System.out.println("Busquedas por NativeQuery");
-		Automovil e7 = this.automovilService.buscarPorPlacaNativeQuery("TCX900");
-		System.out.println(e7);
-		Automovil e8 = this.automovilService.buscarPorColorNativeQuery("Negro");
-		System.out.println(e8);
-		Automovil e9 = this.automovilService.buscarPorTransmicionNativeQuery("Manual");
-		System.out.println(e9);
-		System.out.println("******************************************************");
+		System.out.println("**********************************************************");
+		System.out.println("Actualizacion");
 		
-		System.out.println("Busquedas por NamedNativeQuery");
-		Automovil e10 = this.automovilService.buscarPorMarcaNamedQueryNative("Chevrolet");
-		System.out.println(e7);
-		Automovil e11 = this.automovilService.buscarPorAnioNamedQueryNative("2020");
-		System.out.println(e8);
-		Automovil e12 = this.automovilService.buscarPorModeloNamedQueryNative("Camaro");
-		System.out.println(e9);
-		System.out.println("******************************************************");
+		int a3=this.automovilService.actualizarPorPlaca("GPQ865", "Plomo");
+		System.out.println(a3);
 		
-		
+		int a4=this.automovilService.actualizarPorPlaca("PCA865", "Vino");
+		System.out.println(a4);
 		
 	}
 

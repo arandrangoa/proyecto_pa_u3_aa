@@ -23,4 +23,6 @@ public interface IAutomovilService {
 	public Automovil buscarPorModeloNamedQueryNative(String modelo);
 	
 
+	public int eliminarPorPlaca(String placa);
+	public int actualizarPorPlaca(String placa, String color);
 }
