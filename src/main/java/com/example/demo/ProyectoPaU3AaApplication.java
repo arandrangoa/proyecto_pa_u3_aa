@@ -11,14 +11,20 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.example.demo.uce.modelo.Estudiante;
+import com.example.demo.uce.modelo.Habitacion;
+import com.example.demo.uce.modelo.Hotel;
 import com.example.demo.uce.modelo.dto.EstudianteDTO;
 import com.example.demo.uce.service.IEstudianteService;
+import com.example.demo.uce.service.IHotelService;
 
 @SpringBootApplication
 public class ProyectoPaU3AaApplication implements CommandLineRunner{
 	
 	@Autowired
 	private IEstudianteService estudianteService;
+	
+	@Autowired
+	private IHotelService hotelService;
 
 	public static void main(String[] args) {
 		SpringApplication.run(ProyectoPaU3AaApplication.class, args);
@@ -87,6 +93,26 @@ public class ProyectoPaU3AaApplication implements CommandLineRunner{
 		System.out.println("Actualizar por apellido");
 		int e2= this.estudianteService.actualizarPorApellido("Mendoza", "Darleen");
 		System.out.println(e2);*/
+		
+		List<Hotel> listaInner=this.hotelService.buscarHotelInnerJoin("VIP");
+		for(Hotel h: listaInner) {
+			System.out.println(h.getNombre());
+			for(Habitacion ha: h.getHabitaciones()){
+				System.out.println("Las habitaciones son: "+ha.getNumero());
+			}
+		}
+		
+		
+		/*List<Hotel> lista=this.hotelService.buscarHotelrightJoin("VIP");
+		for(Hotel h: lista) {
+			System.out.println(h.getNombre());
+			for(Habitacion ha: h.getHabitaciones()){
+				System.out.println("Las habitaciones son: "+ha.getNumero());
+			}
+		}*/
+		
+		
+		
 		
 	}
 

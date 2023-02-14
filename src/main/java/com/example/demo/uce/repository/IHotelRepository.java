@@ -8,5 +8,18 @@ public interface IHotelRepository {
 	
 	//Inner Join
 	public List<Hotel> buscarHotelInnerJoin(String tipoHabitacion);
+	
+	//Left Join
+	public List<Hotel> buscarHotelleftJoin(String tipoHabitacion);
+	
+	//Right Join
+	public List<Hotel> buscarHotelrightJoin(String tipoHabitacion);
+	
+	//Full outer Join
+	public List<Hotel> buscarHotelfullOuterJoin(String tipoHabitacion);
+	
+	//Fetch Join
+	public List<Hotel> buscarHotelJoinFetch(String tipoHabitacion);
+	
 
 }
